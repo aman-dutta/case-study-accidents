@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  apache_spark:
+    container_name: apache_spark
+    image: apache/spark-py:latest
+    volumes:
+      - src:/opt/spark/work-dir
+    command: ["sleep", "infinity"]
+
+volumes:
+  src:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./src
